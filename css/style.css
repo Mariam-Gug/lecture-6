@@ -1,0 +1,524 @@
+/* colors
+canvas: #D8E9A8;
+dark green: #191A19;
+base green: #1E5128;
+light green: #4E9F3D;
+pot body: #0F0E0E;
+pot middle gray: #191A19;
+pot lightest gray: #4c4e4c;
+*/
+
+html, body {
+    height: 100%;
+}
+
+.canvas {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 95vmin;
+    width: 95vmin;
+    background-color: #D8E9A8;
+}
+
+/* POT */
+.pot-top {
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 4vmin;
+    width: 32vmin;
+    background-color: #0F0E0E;
+    border-radius: 2vmin;
+    z-index: 99;
+}
+.pot-top::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    height: 3vmin;
+    width: 20vmin;
+    background-color: #191A19;
+    border-radius: 1.5vmin;
+    z-index: 99;
+}
+.pot-top::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    height: 2vmin;
+    width: 10vmin;
+    background-color: #4c4e4c;
+    border-radius: 1.5vmin;
+    z-index: 99;
+}
+.pot-neck {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 10vmin;
+    width: 28vmin;
+    background-color: #0F0E0E;
+    border-radius: 50%;
+    z-index: 90;
+}
+/* two circles for curving pot neck */
+.pot-neck::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2.6vmin;
+    left: -3.8vmin;
+    height: 6vmin;
+    width: 6vmin;
+    background-color: #D8E9A8;
+    border-radius: 50%;
+    box-shadow: 29.6vmin 0 #D8E9A8;
+}
+.pot-body {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 35vmin;
+    width: 40vmin;
+    background-color: #0F0E0E;
+    border-radius: 50%;
+}
+/* middle shade blik on the pot body */
+.pot-body::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2vmin;
+    left: 10vmin;
+    height: 28vmin;
+    width: 28vmin;
+    background-color: #191A19;
+    border-radius: 50%;
+}
+/* lighest blik on the pot body */
+.pot-body::after {
+    content: '';
+    display: block;
+    position: absolute;
+    transform: rotate(-20deg);
+    top: 7vmin;
+    left: 29vmin;
+    height: 8vmin;
+    width: 4vmin;
+    background-color: #4c4e4c;
+    border-radius: 50%;
+}
+/* pot handles */
+.pot-handle {
+    position: absolute;
+    top: 48%;
+    left: 27%;
+    height: 7vmin;
+    width: 7vmin;
+    background-color: #0F0E0E;
+    border-radius: 50%;
+    box-shadow: 37vmin 0 #0F0E0E;
+    z-index: -1;
+}
+/* blik on the pot handles */
+.pot-handle::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .4vmin;
+    left: 2vmin;
+    height: .8vmin;
+    width: 2vmin;
+    background-color: #4c4e4c;
+    border-radius: 50%;
+    box-shadow: 38vmin 0 #4c4e4c;
+}
+/* pot handle hollow insides */
+.pot-handle::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 26%;
+    left: 30%;
+    height: 3vmin;
+    width: 3vmin;
+    background-color: #D8E9A8;
+    border-radius: 50%;
+    box-shadow: 37vmin 0 #D8E9A8;
+}
+/* left leg */
+.pot-leg {
+    position: absolute;
+    top: 71%;
+    left: 35%; 
+    transform: translate(-50%, -50%);
+    transform: rotate(25deg);
+    height: 7vmin;
+    width: 3vmin;
+    background-color: #0F0E0E;
+    border-radius: 50%;
+}
+/* right leg */
+.pot-leg::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 11vmin;
+    left: 23vmin; 
+    transform: translate(-50%, -50%);
+    transform: rotate(-50deg);
+    height: 7vmin;
+    width: 3vmin;
+    background-color: #0F0E0E;
+    border-radius: 50%;
+}
+/* Moving bubles in the pot */
+.pot-buble {
+    position: absolute;
+    height: 8vmin;
+    width: 8vmin;
+    background-color: #55ad43;
+    border-radius: 50%;
+    border: .5vmin solid #4E9F3D;
+}
+.pot-buble::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .5vmin;
+    left: 3vmin;
+    height: 3vmin;
+    width: 3vmin;
+    border-radius: 50%;
+    background-color: #90c485;
+}
+.pot-buble1 {
+    top: 33%;
+    left: 53%;
+    animation: move1 1s infinite;
+}
+@keyframes move1 {
+    50% {
+        top: 32%;
+        height: 8.5vmin;
+        width: 8.5vmin;
+    }
+    100% {
+        top: 33%;
+        height: 8vmin;
+        width: 8vmin;
+    }
+}
+.pot-buble2 {
+    top: 33%;
+    left: 45%;
+    animation: move2 1.5s infinite;
+}
+@keyframes move2 {
+    0% {
+        top: 32%;
+        height: 9vmin;
+        width: 9vmin;
+    }
+    50% {
+        top: 31%;
+        height: 9.5vmin;
+        width: 9.5vmin;
+    }
+    100% {
+        top: 32%;
+        height: 9vmin;
+        width: 9vmin;
+    }
+}
+.pot-buble3 {
+    top: 33%;
+    left: 38%;
+    animation: move3 1.2s infinite;
+}
+@keyframes move3 {
+    0% {
+        height: 7.5vmin;
+        width: 7.5vmin;
+    }
+    50% {
+        top: 32%;
+        height: 8vmin;
+        width: 8vmin;
+    }
+    100% {
+        top: 33%;
+        height: 7.5vmin;
+        width: 7.5vmin;
+    }
+}
+/* Evaporating bubles */
+.buble {
+    position: absolute;
+    height: 5vmin;
+    width: 5vmin;
+    background-color: #55ad43;
+    border-radius: 50%;
+    border: .5vmin solid #4E9F3D;
+}
+.buble::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .5vmin;
+    left: 2vmin;
+    height: 2vmin;
+    width: 2vmin;
+    border-radius: 50%;
+    background-color: #90c485;
+}
+.buble1 {
+    top: 40%;
+    left: 42%;
+    animation: burst1 4s ease-out infinite;
+}
+.buble1::before {
+    left: 2.3vmin;
+}
+@keyframes burst1 {
+	0% {
+		opacity: 1;
+        top: 40%;
+        height: 6vmin;
+        width: 6vmin;
+	}
+    80% {
+        opacity: 0.8;
+    }
+	100% {
+		opacity: 0;
+		top: 5%;
+        height: 6vmin;
+        width: 6vmin;
+	}
+}
+.buble2 {
+    top: 40%;
+    left: 47%;
+    animation: burst2 3s ease-out 1s infinite;
+}
+.buble2::before {
+    left: 2.1vmin;
+}
+@keyframes burst2 {
+	0% {
+		opacity: 1;
+        top: 40%;
+        height: 5.5vmin;
+        width: 5.5vmin;
+	}
+    80% {
+        opacity: 0.8;
+    }
+	100% {
+		opacity: 0;
+		top: 5%;
+        height: 5.5vmin;
+        width: 5.5vmin;
+	}
+}
+.buble3 {
+    top: 40%;
+    left: 50%;
+    animation: burst3 3s ease-out infinite;
+}
+.buble3::before {
+    left: 2.3vmin;
+}
+@keyframes burst3 {
+	0% {
+		opacity: 1;
+        top: 40%;
+        height: 6vmin;
+        width: 6vmin;
+	}
+    80% {
+        opacity: 0.8;
+    }
+	100% {
+		opacity: 0;
+		top: 5%;
+        height: 6vmin;
+        width: 6vmin;
+	}
+}
+.buble4 {
+    top: 40%;
+    left: 55%;
+    animation: burst4 3s ease-out 2s infinite;
+}
+@keyframes burst4 {
+	0% {
+		opacity: 1;
+        top: 40%;
+	}
+    80% {
+        opacity: 0.8;
+    }
+	100% {
+		opacity: 0;
+		top: 5%;
+	}
+}
+.buble5 {
+    top: 40%;
+    left: 55%;
+    animation: burst5 3s ease-out 1s infinite;
+}
+@keyframes burst5 {
+	0% {
+		opacity: 1;
+        top: 40%;
+	}
+    80% {
+        opacity: 0.8;
+    }
+	100% {
+		opacity: 0;
+		top: 5%;
+	}
+}
+.buble6 {
+    top: 40%;
+    left: 53%;
+    animation: burst6 2s ease-out infinite;
+}
+@keyframes burst6 {
+	0% {
+		opacity: 1;
+        top: 40%;
+	}
+    80% {
+        opacity: 0.8;
+    }
+	100% {
+		opacity: 0;
+		top: 5%;
+	}
+}
+.buble7 {
+    top: 40%;
+    left: 44%;
+    animation: burst7 2s ease-out 1s infinite;
+}
+@keyframes burst7 {
+	0% {
+		opacity: 1;
+        top: 40%;
+	}
+    80% {
+        opacity: 0.8;
+    }
+	100% {
+		opacity: 0;
+		top: 5%;
+	}
+}
+.drip {
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    height: 8vmin;
+    width: 4vmin;
+    background-color: #55ad43;
+    border-radius: 4vmin;
+    border: .5vmin solid #4E9F3D;
+    z-index: 999;
+    animation: drip 1s linear infinite;
+}
+.drip::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .5vmin;
+    left: 1vmin;
+    height: 4vmin;
+    width: 2vmin;
+    border-radius: 50%;
+    background-color: #90c485;
+}
+@keyframes drip {
+    100% {
+        height: 12vmin;
+    }
+}
+.drip-buble {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    height: 4vmin;
+    width: 4vmin;
+    background-color: #55ad43;
+    border-radius: 50%;
+    border: .5vmin solid #4E9F3D;
+    opacity: 0;
+    animation: buble-dripping 1s ease-in 1s infinite;
+    z-index: 999;
+}
+.drip-buble::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .5vmin;
+    left: 1vmin;
+    height: 2vmin;
+    width: 2vmin;
+    border-radius: 50%;
+    background-color: #90c485;
+}
+@keyframes buble-dripping {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        top: 75%;
+        opacity: 1;
+    }
+}
+.drip-on-the-floor {
+    position: absolute;
+    top: 78%;
+    left: 38%;
+    height: 4vmin;
+    width: 10vmin;
+    background-color: #55ad43;
+    border-radius: 50%;
+    border: .5vmin solid #4E9F3D;
+    animation: drip-on-the-floor 1s 1s infinite;
+}
+.drip-on-the-floor::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .5vmin;
+    left: 1vmin;
+    height: 1.5vmin;
+    width: 3vmin;
+    border-radius: 50%;
+    background-color: #90c485;
+}
+@keyframes drip-on-the-floor {
+    99% {
+        left: 38%;
+        width: 10vmin;
+    }
+    100% {
+        left: 37%;
+        width: 12vmin;
+    }
+}
