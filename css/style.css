@@ -3,8 +3,7 @@
     --pot-shadow: #a5b381;
     --pot-base: #0F0E0E; 
     --pot-middle-gray: #191A19;
-    --pot-blik: #272927;
-    --pot-lightest-blik: #545754;
+    --pot-blik: #545754;
     --buble-base: #55ad43;
     --buble-border: #4E9F3D;
     --buble-middle-blik: #66c553;
@@ -64,10 +63,10 @@ html, body {
     content: '';
     display: block;
     position: absolute;
-    top: 10%;
-    right: 5%;
+    top: .8vmin;
+    right: 3vmin;
     height: 1.5vmin;
-    width: 10vmin;
+    width: 8vmin;
     background-color: var(--pot-blik);
     border-radius: 1.5vmin;
     z-index: 99;
@@ -84,39 +83,17 @@ html, body {
     z-index: 90;
 }
 /* two circles for curving pot neck */
-.neck-blik {
-    position: absolute;
-    top: 43%;
-    left: 53%;
-    transform: translate(-50%, -50%);
-    height: 10vmin;
-    width: 28vmin;
-    background-color: var(--pot-middle-gray);
-    border-radius: 50%;
-    z-index: 91;
-}
-.neck-blik::after {
+.pot-neck::after {
     content: '';
     display: block;
     position: absolute;
     top: 2.6vmin;
-    left: -6.8vmin;
+    left: -3.9vmin;
     height: 6vmin;
     width: 6vmin;
     background-color: var(--canvas);
     border-radius: 50%;
-    box-shadow: 30vmin 0 var(--canvas);
-}
-.neck-blik::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 2.6vmin;
-    left: -1.7vmin;
-    height: 7vmin;
-    width: 7vmin;
-    background-color: var(--pot-base);
-    border-radius: 50%;
+    box-shadow: 29.8vmin 0 var(--canvas);
 }
 .pot-body {
     position: absolute;
@@ -134,45 +111,23 @@ html, body {
     display: block;
     position: absolute;
     top: 2vmin;
-    left: 8vmin;
+    left: 10vmin;
     height: 28vmin;
-    width: 30vmin;
+    width: 28vmin;
     background-color: var(--pot-middle-gray);
     border-radius: 50%;
 }
-/* middle blik on the pot body */
+/* lightest blik on the pot body */
 .pot-body::after {
     content: '';
     display: block;
     position: absolute;
     transform: rotate(-20deg);
-    top: 2vmin;
-    left: 15vmin;
-    height: 21vmin;
-    width: 20vmin;
-    background-color: var(--pot-blik);
-    border-radius: 50%;
-}
-.lighets-blik {
-    position: absolute;
-    top: 37.5%;
-    left: 60%;
-    height: 1vmin;
-    width: 4vmin;
-    background-color: var(--pot-lightest-blik);
-    border-radius: 1vmin;
-    z-index: 99999;
-}
-.lighets-blik::after {
-    content: '';
-    display: block;
-    position: inherit;
-    top: 11vmin;
-    right: 2vmin;
+    top: 8vmin;
+    right: 7vmin;
     height: 7vmin;
     width: 4vmin;
-    transform: rotate(-20deg);
-    background-color: var(--pot-lightest-blik);
+    background-color: var(--pot-blik);
     border-radius: 50%;
 }
 /* pot handles */
