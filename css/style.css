@@ -1,17 +1,19 @@
-/* colors
-canvas: #D8E9A8;
-dark green: #191A19;
-base green: #1E5128;
-light green: #4E9F3D;
-pot body: #0F0E0E;
-pot middle gray: #191A19;
-pot lightest gray: #4c4e4c;
-*/
-
+:root {
+    --canvas: #D8E9A8;
+    --pot-shadow: #a5b381;
+    --pot-base: #0F0E0E; 
+    --pot-middle-gray: #191A19;
+    --pot-blik: #272927;
+    --pot-lightest-blik: #545754;
+    --buble-base: #55ad43;
+    --buble-border: #4E9F3D;
+    --buble-middle-blik: #66c553;
+    --buble-blik: #a9db9f;
+  }
+/* buble whiter blik: #c2f0b9 */
 html, body {
     height: 100%;
 }
-
 .canvas {
     position: relative;
     top: 50%;
@@ -20,10 +22,19 @@ html, body {
     border-radius: 50%;
     height: 95vmin;
     width: 95vmin;
-    background-color: #D8E9A8;
+    background-color: var(--canvas);
 }
-
 /* POT */
+.pot-shadow {
+    position: absolute;
+    top: 65%;
+    left: 18%;
+    transform: skew(120deg, 15deg);
+    height: 15vmin;
+    width: 45vmin;
+    background-color: var(--pot-shadow);
+    border-radius: 50%;
+}
 .pot-top {
     position: absolute;
     top: 39%;
@@ -31,10 +42,11 @@ html, body {
     transform: translate(-50%, -50%);
     height: 4vmin;
     width: 32vmin;
-    background-color: #0F0E0E;
+    background-color: var(--pot-base);
     border-radius: 2vmin;
     z-index: 99;
 }
+/* middle shade blik on the lip of the pot */
 .pot-top::before {
     content: '';
     display: block;
@@ -43,19 +55,20 @@ html, body {
     right: 5%;
     height: 3vmin;
     width: 20vmin;
-    background-color: #191A19;
+    background-color: var(--pot-middle-gray);
     border-radius: 1.5vmin;
     z-index: 99;
 }
+/* lightest blik on the lip of the pot */
 .pot-top::after {
     content: '';
     display: block;
     position: absolute;
     top: 10%;
     right: 5%;
-    height: 2vmin;
+    height: 1.5vmin;
     width: 10vmin;
-    background-color: #4c4e4c;
+    background-color: var(--pot-blik);
     border-radius: 1.5vmin;
     z-index: 99;
 }
@@ -66,22 +79,44 @@ html, body {
     transform: translate(-50%, -50%);
     height: 10vmin;
     width: 28vmin;
-    background-color: #0F0E0E;
+    background-color: var(--pot-base);
     border-radius: 50%;
     z-index: 90;
 }
 /* two circles for curving pot neck */
-.pot-neck::before {
+.neck-blik {
+    position: absolute;
+    top: 43%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    height: 10vmin;
+    width: 28vmin;
+    background-color: var(--pot-middle-gray);
+    border-radius: 50%;
+    z-index: 91;
+}
+.neck-blik::after {
     content: '';
     display: block;
     position: absolute;
     top: 2.6vmin;
-    left: -3.8vmin;
+    left: -6.8vmin;
     height: 6vmin;
     width: 6vmin;
-    background-color: #D8E9A8;
+    background-color: var(--canvas);
     border-radius: 50%;
-    box-shadow: 29.6vmin 0 #D8E9A8;
+    box-shadow: 30vmin 0 var(--canvas);
+}
+.neck-blik::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2.6vmin;
+    left: -1.7vmin;
+    height: 7vmin;
+    width: 7vmin;
+    background-color: var(--pot-base);
+    border-radius: 50%;
 }
 .pot-body {
     position: absolute;
@@ -90,32 +125,54 @@ html, body {
     transform: translate(-50%, -50%);
     height: 35vmin;
     width: 40vmin;
-    background-color: #0F0E0E;
+    background-color: var(--pot-base);
     border-radius: 50%;
 }
-/* middle shade blik on the pot body */
+/* dark shade blik on the pot body */
 .pot-body::before {
     content: '';
     display: block;
     position: absolute;
     top: 2vmin;
-    left: 10vmin;
+    left: 8vmin;
     height: 28vmin;
-    width: 28vmin;
-    background-color: #191A19;
+    width: 30vmin;
+    background-color: var(--pot-middle-gray);
     border-radius: 50%;
 }
-/* lighest blik on the pot body */
+/* middle blik on the pot body */
 .pot-body::after {
     content: '';
     display: block;
     position: absolute;
     transform: rotate(-20deg);
-    top: 7vmin;
-    left: 29vmin;
-    height: 8vmin;
+    top: 2vmin;
+    left: 15vmin;
+    height: 21vmin;
+    width: 20vmin;
+    background-color: var(--pot-blik);
+    border-radius: 50%;
+}
+.lighets-blik {
+    position: absolute;
+    top: 37.5%;
+    left: 60%;
+    height: 1vmin;
     width: 4vmin;
-    background-color: #4c4e4c;
+    background-color: var(--pot-lightest-blik);
+    border-radius: 1vmin;
+    z-index: 99999;
+}
+.lighets-blik::after {
+    content: '';
+    display: block;
+    position: inherit;
+    top: 11vmin;
+    right: 2vmin;
+    height: 7vmin;
+    width: 4vmin;
+    transform: rotate(-20deg);
+    background-color: var(--pot-lightest-blik);
     border-radius: 50%;
 }
 /* pot handles */
@@ -125,9 +182,9 @@ html, body {
     left: 27%;
     height: 7vmin;
     width: 7vmin;
-    background-color: #0F0E0E;
+    background-color: var(--pot-base);
     border-radius: 50%;
-    box-shadow: 37vmin 0 #0F0E0E;
+    box-shadow: 37vmin 0 var(--pot-base);
     z-index: -1;
 }
 /* blik on the pot handles */
@@ -139,9 +196,9 @@ html, body {
     left: 2vmin;
     height: .8vmin;
     width: 2vmin;
-    background-color: #4c4e4c;
+    background-color: var(--pot-blik);
     border-radius: 50%;
-    box-shadow: 38vmin 0 #4c4e4c;
+    box-shadow: 38vmin 0 var(--pot-blik);
 }
 /* pot handle hollow insides */
 .pot-handle::after {
@@ -152,9 +209,9 @@ html, body {
     left: 30%;
     height: 3vmin;
     width: 3vmin;
-    background-color: #D8E9A8;
+    background-color: var(--canvas);
     border-radius: 50%;
-    box-shadow: 37vmin 0 #D8E9A8;
+    box-shadow: 37vmin 0 var(--canvas);
 }
 /* left leg */
 .pot-leg {
@@ -165,7 +222,7 @@ html, body {
     transform: rotate(25deg);
     height: 7vmin;
     width: 3vmin;
-    background-color: #0F0E0E;
+    background-color: var(--pot-base);
     border-radius: 50%;
 }
 /* right leg */
@@ -179,7 +236,7 @@ html, body {
     transform: rotate(-50deg);
     height: 7vmin;
     width: 3vmin;
-    background-color: #0F0E0E;
+    background-color: var(--pot-base);
     border-radius: 50%;
 }
 /* Moving bubles in the pot */
@@ -187,20 +244,31 @@ html, body {
     position: absolute;
     height: 8vmin;
     width: 8vmin;
-    background-color: #55ad43;
+    background-color: var(--buble-base);
     border-radius: 50%;
-    border: .5vmin solid #4E9F3D;
+    border: .5vmin solid var(--buble-border);
 }
 .pot-buble::before {
     content: '';
     display: block;
     position: absolute;
     top: .5vmin;
-    left: 3vmin;
-    height: 3vmin;
-    width: 3vmin;
+    left: 1.5vmin;
+    height: 5vmin;
+    width: 5vmin;
     border-radius: 50%;
-    background-color: #90c485;
+    background-color: var(--buble-middle-blik);
+}
+.pot-buble::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .5vmin;
+    left: 4vmin;
+    height: 2vmin;
+    width: 2vmin;
+    border-radius: 50%;
+    background-color: var(--buble-blik);
 }
 .pot-buble1 {
     top: 33%;
@@ -267,28 +335,40 @@ html, body {
     position: absolute;
     height: 5vmin;
     width: 5vmin;
-    background-color: #55ad43;
+    background-color: var(--buble-base);
     border-radius: 50%;
-    border: .5vmin solid #4E9F3D;
+    border: .5vmin solid var(--buble-border);
 }
 .buble::before {
     content: '';
     display: block;
     position: absolute;
     top: .5vmin;
-    left: 2vmin;
-    height: 2vmin;
-    width: 2vmin;
+    left: 1vmin;
+    height: 3.5vmin;
+    width: 3.5vmin;
     border-radius: 50%;
-    background-color: #90c485;
+    background-color: var(--buble-middle-blik);
+}
+.buble::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .5vmin;
+    left: 2vmin;
+    height: 1.5vmin;
+    width: 1.5vmin;
+    border-radius: 50%;
+    background-color: var(--buble-blik);
 }
 .buble1 {
     top: 40%;
     left: 42%;
     animation: burst1 4s ease-out infinite;
 }
-.buble1::before {
-    left: 2.3vmin;
+.buble1::after {
+    top: .5vmin;
+    left: 2.5vmin;
 }
 @keyframes burst1 {
 	0% {
@@ -313,7 +393,8 @@ html, body {
     animation: burst2 3s ease-out 1s infinite;
 }
 .buble2::before {
-    left: 2.1vmin;
+    top: .3vmin;
+    left: .8vmin;
 }
 @keyframes burst2 {
 	0% {
@@ -335,17 +416,24 @@ html, body {
 .buble3 {
     top: 40%;
     left: 50%;
+    height: 6vmin;
+    width: 6vmin;
     animation: burst3 3s ease-out infinite;
 }
 .buble3::before {
-    left: 2.3vmin;
+    top: .5vmin;
+    left: 1vmin;
+    height: 3.5vmin;
+    width: 3.5vmin;
+}
+.buble3::after {
+    top: .7vmin;
+    left: 2.5vmin;
 }
 @keyframes burst3 {
 	0% {
 		opacity: 1;
         top: 40%;
-        height: 6vmin;
-        width: 6vmin;
 	}
     80% {
         opacity: 0.8;
@@ -353,14 +441,18 @@ html, body {
 	100% {
 		opacity: 0;
 		top: 5%;
-        height: 6vmin;
-        width: 6vmin;
 	}
 }
 .buble4 {
     top: 40%;
     left: 55%;
     animation: burst4 3s ease-out 2s infinite;
+}
+.buble4::before {
+    top: .5vmin;
+    left: .8vmin;
+    height: 3vmin;
+    width: 3vmin;
 }
 @keyframes burst4 {
 	0% {
@@ -380,6 +472,12 @@ html, body {
     left: 55%;
     animation: burst5 3s ease-out 1s infinite;
 }
+.buble5::before {
+    top: .3vmin;
+    left: .8vmin;
+    height: 3vmin;
+    width: 3vmin;
+}
 @keyframes burst5 {
 	0% {
 		opacity: 1;
@@ -398,6 +496,12 @@ html, body {
     left: 53%;
     animation: burst6 2s ease-out infinite;
 }
+.buble6::before {
+    top: .5vmin;
+    left: 1vmin;
+    height: 3vmin;
+    width: 3vmin;
+}
 @keyframes burst6 {
 	0% {
 		opacity: 1;
@@ -415,6 +519,12 @@ html, body {
     top: 40%;
     left: 44%;
     animation: burst7 2s ease-out 1s infinite;
+}
+.buble7::before {
+    top: .3vmin;
+    left: .8vmin;
+    height: 3vmin;
+    width: 3vmin;
 }
 @keyframes burst7 {
 	0% {
@@ -435,9 +545,9 @@ html, body {
     left: 40%;
     height: 8vmin;
     width: 4vmin;
-    background-color: #55ad43;
+    background-color: var(--buble-base);
     border-radius: 4vmin;
-    border: .5vmin solid #4E9F3D;
+    border: .5vmin solid var(--buble-border);
     z-index: 999;
     animation: drip 1s linear infinite;
 }
@@ -447,10 +557,21 @@ html, body {
     position: absolute;
     top: .5vmin;
     left: 1vmin;
-    height: 4vmin;
+    height: 6vmin;
     width: 2vmin;
-    border-radius: 50%;
-    background-color: #90c485;
+    border-radius: 2vmin;
+    background-color: var(--buble-middle-blik);
+}
+.drip::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 1vmin;
+    left: 1.8vmin;
+    height: 4vmin;
+    width: 1vmin;
+    border-radius: 2vmin;
+    background-color: var(--buble-blik);
 }
 @keyframes drip {
     100% {
@@ -463,9 +584,9 @@ html, body {
     left: 40%;
     height: 4vmin;
     width: 4vmin;
-    background-color: #55ad43;
+    background-color: var(--buble-base);
     border-radius: 50%;
-    border: .5vmin solid #4E9F3D;
+    border: .5vmin solid var(--buble-border);
     opacity: 0;
     animation: buble-dripping 1s ease-in 1s infinite;
     z-index: 999;
@@ -474,12 +595,22 @@ html, body {
     content: '';
     display: block;
     position: absolute;
-    top: .5vmin;
-    left: 1vmin;
-    height: 2vmin;
-    width: 2vmin;
+    left: .3vmin;
+    height: 2.8vmin;
+    width: 2.8vmin;
     border-radius: 50%;
-    background-color: #90c485;
+    background-color: var(--buble-middle-blik);
+}
+.drip-buble::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .5vmin;
+    left: 1.5vmin;
+    height: 1vmin;
+    width: 1vmin;
+    border-radius: 50%;
+    background-color: var(--buble-blik);
 }
 @keyframes buble-dripping {
     0% {
@@ -496,21 +627,31 @@ html, body {
     left: 38%;
     height: 4vmin;
     width: 10vmin;
-    background-color: #55ad43;
+    background-color: var(--buble-base);
     border-radius: 50%;
-    border: .5vmin solid #4E9F3D;
+    border: .5vmin solid var(--buble-border);
     animation: drip-on-the-floor 1s 1s infinite;
 }
 .drip-on-the-floor::before {
     content: '';
     display: block;
     position: absolute;
-    top: .5vmin;
     left: 1vmin;
+    height: 2.5vmin;
+    width: 6vmin;
+    border-radius: 50%;
+    background-color: var(--buble-middle-blik);
+}
+.drip-on-the-floor::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .5vmin;
+    left: 1.5vmin;
     height: 1.5vmin;
     width: 3vmin;
     border-radius: 50%;
-    background-color: #90c485;
+    background-color: var(--buble-blik);
 }
 @keyframes drip-on-the-floor {
     99% {
