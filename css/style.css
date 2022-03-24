@@ -130,7 +130,7 @@ html, body {
 .bone {
     position: absolute;
     top: 12%;
-    left: 30%;
+    left: 29%;
     transform: rotate(-15deg);
     height: 3vmin;
     width: .8vmin;
