@@ -55,7 +55,7 @@ html, body {
 }
 @keyframes shadow {
     50% {
-        opacity: 0;
+        opacity: .2;
         left: 73%;
         height: 3.4vmin;
         width: 10vmin;
