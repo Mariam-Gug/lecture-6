@@ -8,8 +8,10 @@
     --buble-border: #4E9F3D;
     --buble-middle-blik: #66c553;
     --buble-blik: #a9db9f;
+    --skin-color: #E3B7A0;
+    --bone-color: #8d918d;
   }
-/* buble whiter blik: #c2f0b9 */
+
 html, body {
     height: 100%;
 }
@@ -33,6 +35,140 @@ html, body {
     width: 45vmin;
     background-color: var(--pot-shadow);
     border-radius: 50%;
+}
+/* Hand */
+.hand {
+    position: absolute;
+    top: 15%;
+    left: 26%;
+    height: 30vmin;
+    transform: rotate(-40deg);
+    width: 18vmin;
+    animation: moving-hand 1.5s infinite;
+}
+@keyframes moving-hand {
+    50% {
+        top: 14%;
+    }
+    100% {
+        top: 15%;
+    }
+}
+.palm {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 7vmin;
+    width: 8vmin;
+    background-color: var(--skin-color);
+    border-radius: 3vmin;
+}
+/* Elbow */
+.palm::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 14vmin;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 15vmin;
+    width: 5vmin;
+    background-color: var(--skin-color);
+}
+.thumb {
+    position: absolute;
+    top: 23%;
+    left: 20%;
+    transform: rotate(-50deg);
+    height: 7vmin;
+    width: 2vmin;
+    background-color: var(--skin-color);
+    border-radius: 1vmin;
+}
+/* pointer finger */
+.thumb::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .3vmin;
+    left: 3.5vmin;
+    transform: rotate(40deg);
+    height: 4vmin;
+    width: 1.8vmin;
+    background-color: var(--skin-color);
+    border-radius: .5vmin;
+}
+.bone {
+    position: absolute;
+    top: 12%;
+    left: 30%;
+    transform: rotate(-15deg);
+    height: 3vmin;
+    width: .8vmin;
+    background-color: var(--bone-color);
+    border-radius: 1vmin;
+}
+/* bone circle parts on the top */
+.bone::before {
+    content: '';
+    display: blocks;
+    position: absolute;
+    top: -.6vmin;
+    left: .1vmin;
+    transform: rotate(-15deg);
+    height: 1vmin;
+    width: 1vmin;
+    background-color: var(--bone-color);
+    border-radius: 50%;
+}
+.bone::after {
+    content: '';
+    display: blocks;
+    position: absolute;
+    top: -.6vmin;
+    left: -.7vmin;
+    transform: rotate(-15deg);
+    height: 1vmin;
+    width: 1vmin;
+    background-color: var(--bone-color);
+    border-radius: 50%;
+}
+.middle-finger {
+    position: absolute;
+    top: 18%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    height: 7vmin;
+    width: 1.8vmin;
+    background-color: var(--skin-color);
+    border-radius: 1vmin;
+}
+/* The one between middle and last one */
+.middle-finger::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .6vmin;
+    left: 2.2vmin;
+    transform: rotate(5deg);
+    height: 7vmin;
+    width: 1.6vmin;
+    background-color: var(--skin-color);
+    border-radius: 1vmin;
+}
+/* last finger */
+.middle-finger::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2vmin;
+    left: 4vmin;
+    transform: rotate(10deg);
+    height: 7vmin;
+    width: 1.4vmin;
+    background-color: var(--skin-color);
+    border-radius: 1vmin;
 }
 .pot-top {
     position: absolute;
