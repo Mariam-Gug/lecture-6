@@ -51,7 +51,7 @@ html, body {
     background-color: var(--pot-shadow);
     border-radius: 50%;
     opacity: .7;
-    animation: shadow 1.2s infinite;
+    animation: shadow 1.4s infinite;
 }
 @keyframes shadow {
     50% {
@@ -261,23 +261,26 @@ html, body {
     position: absolute;
     top: 72%;
     left: 76%;
-    height: 4.5vmin;
+    height: 4.8vmin;
     width: 5vmin;
     background-color: var(--eyeball-bg);
     border-radius: 50%;
     border: .5vmin solid var(--eyeball-border);
-    animation: jumping-eyeball 1.2s ease-out infinite;
+    animation: jumping-eyeball 1.4s ease-out infinite;
 }
 @keyframes jumping-eyeball{
-    50% {
+    47% {
         top: 55%;
         height: 5vmin;
     }
-    60% {
+    53% {
         top: 55%;
     }
-    90% {
-        height: 5vmin;
+    95% {
+        height: 4.5vmin;
+    }
+    99% {
+        height: 4vmin;
     }
     100% {
         top: 72%;
